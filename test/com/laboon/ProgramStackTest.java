@@ -142,7 +142,8 @@ public class ProgramStackTest {
 	assertTrue(stack.toString().equals("[1, 2, 3]"));
     }
     // Test that 101 strings (0-100) will successfully print from stack
-    // - we know 3 works, test 100.
+    // - we know 3 works, test 100. Will be surrounded by brackets
+    // e.g. [0, 1, 2, ... 99, 100]
     @Test
     public void testToString101() {
         ProgramStack stack = new ProgramStack();
@@ -152,7 +153,10 @@ public class ProgramStackTest {
 	// May the Gods of computation forgive me for this clustered statement - it's right though - Julian
         assertTrue(stack.toString().equals("[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100]"));
     }
-
+    
+    // Test that the stack allows negative numbers to be stringified properly and that
+    // negative number symbols are not truncated. Will be surrounded by brackets,
+    // e.g. [-8, -1, -6]
     @Test
     public void testToStringNegativeNumbers() {
         ProgramStack stack = new ProgramStack();
@@ -162,6 +166,9 @@ public class ProgramStackTest {
 	assertTrue(stack.toString().equals("[-8, -1, -6]"));
     }
 	
+    // Test large multi-digit numbers, including a negative, to make sure that the stack can 
+    // properly interperet and output. Will be surrounded by brackets,
+    // e.g. [8675309, -2147483648, 9001, 1632, 2147483647, 1234567890]
     @Test
     public void testToStringMultipleDigitNumbers() {
         ProgramStack stack = new ProgramStack();
@@ -172,6 +179,6 @@ public class ProgramStackTest {
 	stack.push(1632); // Because 1632 is great
 	stack.push(2147483647); // Because signed int max
 	stack.push(1234567890); // Because easy-to-swipeon my keyboard
-	asertTrue(stack.toString().equals("[8675309, -2147483648, 9001, 1632, 2147483647, 1234567890)"));
+	asertTrue(stack.toString().equals("[8675309, -2147483648, 9001, 1632, 2147483647, 1234567890]"));
     }
 }
