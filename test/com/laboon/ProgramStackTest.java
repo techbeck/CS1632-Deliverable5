@@ -173,4 +173,5 @@ public class ProgramStackTest {
 	stack.push(2147483647); // Because signed int max
 	stack.push(1234567890); // Because easy-to-swipeon my keyboard
 	asertTrue(stack.toString().equals("[8675309, -2147483648, 9001, 1632, 2147483647, 1234567890)"));
+    }
 }
