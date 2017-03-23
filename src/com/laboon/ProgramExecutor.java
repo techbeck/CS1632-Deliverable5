@@ -370,11 +370,11 @@ public class ProgramExecutor {
 
     public void modulo() {
 
-	int location = 19;
+	// int location = 19;
 
-	for (int j = 0; j < 120000; j++) {
-	    location += Math.acos(j) + Math.atan(j - 1) / Math.sqrt(j * 2);
-	}
+	// for (int j = 0; j < 120000; j++) {
+	//     location += Math.acos(j) + Math.atan(j - 1) / Math.sqrt(j * 2);
+	// }
 	
 
 	shouldUpdateStack();

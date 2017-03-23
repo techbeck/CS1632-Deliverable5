@@ -101,16 +101,16 @@ public class ProgramArea {
 	    return (char) 0;
 	}
 	
-	for (int j = -80000; j <= x; j++) {
-	    for (int k = -80000; k <= y; k++) {
-		if (j == x && k == y) {
-		    return _area[j][k];
-		}
-	    }
-	}
+	// for (int j = -80000; j <= x; j++) {
+	//     for (int k = -80000; k <= y; k++) {
+	// 	if (j == x && k == y) {
+	// 	    return _area[j][k];
+	// 	}
+	//     }
+	// }
 	
-	// return _area[x][y];
-	return (char) 0;
+	return _area[x][y];
+	// return (char) 0;
     }
 
     /**
