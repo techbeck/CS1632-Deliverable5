@@ -36,7 +36,50 @@ public class ProgramAreaTest {
 	assertEquals(pa.getOpCode(3, 1), ' ');
 	assertEquals(pa.getOpCode(5, 5), ' ');
     }
-
+	
+   // 3 GetOptCode Tests !!!!
+	
+    // (Quite literally) test corner cases for GetOpt, where both x and y 
+    // indexes are out of bound on the top. Specifically tests for boundary
+    // values, e.g. 0, and -1.
+    @Test
+    public void testGetOptCodeTopCornersBoundaryValues() {
+        ProgramArea pa = new ProgramArea();
+	// In bounds       == ' '
+	assertEquals(pa.getOptCode(0, 0), ' ');
+	assertEquals(pa.getOptCode(pa._xSize-1, 0), ' ');
+	// Out of bounds   == '0'
+	assertEquals(pa.getOptCode(-1,-1), '0');
+	assertEquals(pa.getOptCode(pa._xSize, -1), '0');
+    }
+	
+    // (Quite literally) test corner cases for GetOpt, where both x and y 
+    // indexes are out of bound on the bottom. Specifically tests for boundary
+    // values, e.g. 99, and 100. (If default the size is default_max)
+    @Test
+    public void testGetOptCodeBottomCornersBoundaryValues() {
+        ProgramArea pa = new ProgramArea();
+	// In bounds       == ' '
+	assertEquals(pa.getOptCode(0, pa._ySize-1), ' ');
+	assertEquals(pa.getOptCode(pa._xSize-1, pa._ySize-1), ' ');
+	// Out of bounds   == '0'
+	assertEquals(pa.getOptCode(-1, pa._ySize), '0');
+	assertEquals(pa.getOptCode(pa._xSize, pa._ySize), '0');
+    }
+    
+    // Assert that characters on a multi-string input return
+    // op-codes correctly for op codes external to the input
+    // string. E.g. getOpCode(3, 0) == 's', getOpCode(4, 0) == ' '
+    @Test
+    public void testExternalInputOnMultipleLineProgram() {
+	ProgramArea pa = new ProgramArea("This\nis\na\ntest");
+	// Assure that our op code reads a space after ASCII characters in-line
+	assertEquals(getOpCode(4, 0), ' '); // Assert first OpCode after 's' in this is a space
+	assertEquals(getOpCode(5, 2), ' '); // Assert fifth OpCode after 'a' in 'a' is a space
+	assertEquals(getOpcode(3, 1), ' '); // Assert second OpCode after 's' in in 'is' is a space
+    }
+    
+    
     // If we pass in a single-line program, see that it gets read in
     // correctly
     @Test
