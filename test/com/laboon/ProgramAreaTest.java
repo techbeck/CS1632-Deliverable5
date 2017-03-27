@@ -37,34 +37,34 @@ public class ProgramAreaTest {
 	assertEquals(pa.getOpCode(5, 5), ' ');
     }
 	
-   // 3 GetOptCode Tests !!!!
+   // 3 getOpCode Tests !!!!
 	
-    // (Quite literally) test corner cases for GetOpt, where both x and y 
+    // (Quite literally) test corner cases for getOp, where both x and y 
     // indexes are out of bound on the top. Specifically tests for boundary
     // values, e.g. 0, and -1.
     @Test
-    public void testGetOptCodeTopCornersBoundaryValues() {
+    public void testgetOpCodeTopCornersBoundaryValues() {
         ProgramArea pa = new ProgramArea();
 	// In bounds       == ' '
-	assertEquals(pa.getOptCode(0, 0), ' ');
-	assertEquals(pa.getOptCode(pa._xSize-1, 0), ' ');
+	assertEquals(pa.getOpCode(0, 0), ' ');
+	assertEquals(pa.getOpCode(pa._xSize-1, 0), ' ');
 	// Out of bounds   == '0'
-	assertEquals(pa.getOptCode(-1,-1), '0');
-	assertEquals(pa.getOptCode(pa._xSize, -1), '0');
+	assertEquals(pa.getOpCode(-1,-1), '0');
+	assertEquals(pa.getOpCode(pa._xSize, -1), '0');
     }
 	
-    // (Quite literally) test corner cases for GetOpt, where both x and y 
+    // (Quite literally) test corner cases for getOp, where both x and y 
     // indexes are out of bound on the bottom. Specifically tests for boundary
     // values, e.g. 99, and 100. (If default the size is default_max)
     @Test
-    public void testGetOptCodeBottomCornersBoundaryValues() {
+    public void testgetOpCodeBottomCornersBoundaryValues() {
         ProgramArea pa = new ProgramArea();
 	// In bounds       == ' '
-	assertEquals(pa.getOptCode(0, pa._ySize-1), ' ');
-	assertEquals(pa.getOptCode(pa._xSize-1, pa._ySize-1), ' ');
+	assertEquals(pa.getOpCode(0, pa._ySize-1), ' ');
+	assertEquals(pa.getOpCode(pa._xSize-1, pa._ySize-1), ' ');
 	// Out of bounds   == '0'
-	assertEquals(pa.getOptCode(-1, pa._ySize), '0');
-	assertEquals(pa.getOptCode(pa._xSize, pa._ySize), '0');
+	assertEquals(pa.getOpCode(-1, pa._ySize), '0');
+	assertEquals(pa.getOpCode(pa._xSize, pa._ySize), '0');
     }
     
     // Assert that characters on a multi-string input return
@@ -74,9 +74,9 @@ public class ProgramAreaTest {
     public void testExternalInputOnMultipleLineProgram() {
 	ProgramArea pa = new ProgramArea("This\nis\na\ntest");
 	// Assure that our op code reads a space after ASCII characters in-line
-	assertEquals(getOpCode(4, 0), ' '); // Assert first OpCode after 's' in this is a space
-	assertEquals(getOpCode(5, 2), ' '); // Assert fifth OpCode after 'a' in 'a' is a space
-	assertEquals(getOpcode(3, 1), ' '); // Assert second OpCode after 's' in in 'is' is a space
+	assertEquals(pa.getOpCode(4, 0), ' '); // Assert first OpCode after 's' in this is a space
+	assertEquals(pa.getOpCode(5, 2), ' '); // Assert fifth OpCode after 'a' in 'a' is a space
+	assertEquals(pa.getOpCode(3, 1), ' '); // Assert second OpCode after 's' in in 'is' is a space
     }
     
     
