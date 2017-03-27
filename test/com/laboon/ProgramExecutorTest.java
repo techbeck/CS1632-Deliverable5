@@ -99,16 +99,16 @@ public class ProgramExecutorTest {
     // %   Modulo: Pop a and b, then push remainder of -5/4 to the stack. Should be -1 according to original program.
     @Test
     public void moduloNegativeNumberByPositive() {
-	_e.ps.push(-5); // Push -5 onto stack
-	_e.ps.push(4); // Push 4 onto stack
+	_e._ps.push(-5); // Push -5 onto stack
+	_e._ps.push(4); // Push 4 onto stack
 	_e.modulo(); // -5 % 4 == -1 in given program
 	assertEquals(-1, _e._ps.peek());
     }
     // %   Modulo: Pop a and b, then push remainder of -5/4 to the stack. Should be 1 according to original program.
     @Test
     public void moduloPositiveNumberByNegative() {
-	_e.ps.push(5); // Push 5 onto stack
-	_e.ps.push(-4); // Push -4 onto stack
+	_e._ps.push(5); // Push 5 onto stack
+	_e._ps.push(-4); // Push -4 onto stack
 	_e.modulo(); // 5 % -4  == 1 in given program
 	assertEquals(1, _e._ps.peek());
     }
@@ -116,8 +116,8 @@ public class ProgramExecutorTest {
     // %   Modulo: Pop a and b, then push remainder of 9001/1337 onto the stack. Should be 979 according to original program.
     @Test
     public void moduloLargeNumbers() {
-	_e.ps.push(9001); // Push 9001 onto the stack
-	_e.ps.push(1337); // Push 1337 onto the stack
+	_e._ps.push(9001); // Push 9001 onto the stack
+	_e._ps.push(1337); // Push 1337 onto the stack
 	_e.modulo(); // 9001 % 1337 == 979
 	assertEquals(979, _e._ps.peek());
     }
