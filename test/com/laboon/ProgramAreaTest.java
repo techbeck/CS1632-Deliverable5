@@ -47,10 +47,10 @@ public class ProgramAreaTest {
         ProgramArea pa = new ProgramArea();
 	// In bounds       == ' '
 	assertEquals(pa.getOpCode(0, 0), ' ');
-	assertEquals(pa.getOpCode(pa._xSize-1, 0), ' ');
-	// Out of bounds   == '0'
-	assertEquals(pa.getOpCode(-1,-1), '0');
-	assertEquals(pa.getOpCode(pa._xSize, -1), '0');
+	assertEquals(pa.getOpCode(0, pa._xSize-1), ' ');
+	// Out of bounds   == ((char)0)
+	assertEquals(pa.getOpCode(-1,-1), ((char)0));
+	assertEquals(pa.getOpCode(-1, pa._xSize), ((char)0));
     }
 	
     // (Quite literally) test corner cases for getOp, where both x and y 
@@ -60,11 +60,11 @@ public class ProgramAreaTest {
     public void testgetOpCodeBottomCornersBoundaryValues() {
         ProgramArea pa = new ProgramArea();
 	// In bounds       == ' '
-	assertEquals(pa.getOpCode(0, pa._ySize-1), ' ');
-	assertEquals(pa.getOpCode(pa._xSize-1, pa._ySize-1), ' ');
-	// Out of bounds   == '0'
-	assertEquals(pa.getOpCode(-1, pa._ySize), '0');
-	assertEquals(pa.getOpCode(pa._xSize, pa._ySize), '0');
+	assertEquals(pa.getOpCode(pa._ySize-1, 0), ' ');
+	assertEquals(pa.getOpCode(pa._ySize-1, pa._xSize-1), ' ');
+	// Out of bounds   == ((char)0)
+	assertEquals(pa.getOpCode(pa._ySize, -1), ((char)0));
+	assertEquals(pa.getOpCode(pa._ySize, pa._xSize), ((char)0));
     }
     
     // Assert that characters on a multi-string input return
@@ -74,9 +74,9 @@ public class ProgramAreaTest {
     public void testExternalInputOnMultipleLineProgram() {
 	ProgramArea pa = new ProgramArea("This\nis\na\ntest");
 	// Assure that our op code reads a space after ASCII characters in-line
-	assertEquals(pa.getOpCode(4, 0), ' '); // Assert first OpCode after 's' in this is a space
-	assertEquals(pa.getOpCode(5, 2), ' '); // Assert fifth OpCode after 'a' in 'a' is a space
-	assertEquals(pa.getOpCode(3, 1), ' '); // Assert second OpCode after 's' in in 'is' is a space
+	assertEquals(pa.getOpCode(0, 4), ' '); // Assert first OpCode after 's' in this is a space
+	assertEquals(pa.getOpCode(2, 5), ' '); // Assert fifth OpCode after 'a' in 'a' is a space
+	assertEquals(pa.getOpCode(1, 3), ' '); // Assert second OpCode after 's' in in 'is' is a space
     }
     
     
