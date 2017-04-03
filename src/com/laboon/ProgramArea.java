@@ -109,7 +109,6 @@ public class ProgramArea {
      * If out of bounds, do nothing.
      * @param x x-coordinate
      * @param y y-coordinate
-     * @return char The opcode (char) to set at that location
      */
     
     public void setOpCode(int x, int y, char v) {

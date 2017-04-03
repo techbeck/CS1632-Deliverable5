@@ -1,8 +1,8 @@
 package com.laboon;
 
 import java.awt.*;
-import javax.swing.*;
 import java.util.*;
+import javax.swing.*;
 
 
 public class MainWindow extends JFrame {
@@ -16,6 +16,10 @@ public class MainWindow extends JFrame {
 
     private ButtonPanel _buttonPanel;
     
+
+    /**
+     * Constructor of MainWindow
+     */
     public MainWindow() {
 
 	_frame.setSize(WIDTH, HEIGHT);

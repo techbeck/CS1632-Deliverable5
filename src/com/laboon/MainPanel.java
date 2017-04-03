@@ -1,8 +1,8 @@
 package com.laboon;
 
 import java.awt.*;
-import javax.swing.*;
 import java.util.*;
+import javax.swing.*;
 
 /**
  * The Main Panel of the program.
@@ -39,7 +39,6 @@ public class MainPanel extends JPanel {
      * Get an integer from the user.
      * If the integer is unparseable in ANY way (e.g., nothing entered,
      * "poodle", "4.3"), return 0.  Otherwise, return the entered value.
-     * @param int - user-entered integer
      */
     
     public int getIntFromUser() {
@@ -57,15 +56,15 @@ public class MainPanel extends JPanel {
      * Get a character from the user.
      * If more than one char is entered, accept the first.
      * If no character is entered, assume the null character (ASCII 0).
-     * @param int - ASCII value of first user-entered character
      */
     
     public int getCharFromUser() {
-	String inp = JOptionPane.showInputDialog("Enter a single char (if > 1, will use first; if none, null (0) char)");
+	String inp = JOptionPane.showInputDialog("Enter a single char "
+							+ "(if > 1, will use first; if none, null (0) char)");
 	int toReturn = 0;
 	try {
 	    toReturn = (int) inp.charAt(0);
-	} catch (Exception nfex) {
+	} catch (NumberFormatException nfex) {
 	    toReturn = 0;
 	}
 	return toReturn;
@@ -158,6 +157,10 @@ public class MainPanel extends JPanel {
 	}
 
     }
+
+    /**
+     * Constructor for the MainPanel
+     */
     
     public MainPanel() {
 	super();
