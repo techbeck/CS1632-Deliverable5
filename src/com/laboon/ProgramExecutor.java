@@ -485,7 +485,7 @@ public class ProgramExecutor {
     
     public void pop() {
 	shouldUpdateStack();
-	int a = _ps.pop();
+	_ps.pop();
     }
     
     /**
