@@ -74,23 +74,23 @@ public class ProgramStack {
     
     public String toString() {
 	if (_stack.size() == 0) {
-	    return new String("[]");
+	    return "[]";
 	}
 	if (_stack.size() == 1) {
-	    return new String("[" + _stack.peek() + "]");
+	    return "[" + _stack.peek() + "]";
 	}
 
-	String toReturn = new String("");
-	String startStr = new String("");
-	String openBracket = new String("[");
+	String toReturn = "";
+	String startStr = "";
+	String openBracket = "[";
 	toReturn = startStr + openBracket;
 	for (Integer i: _stack) {
 	    int intI = i.intValue();
-	    String x = new String("" + intI + ", ");
+	    String x = "" + intI + ", ";
 	    toReturn += x;
 	}
 	toReturn = toReturn.substring(0, toReturn.length() - 2);
-	toReturn += new String("]");
+	toReturn += "]";
 	return toReturn;
 
     }
